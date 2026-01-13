@@ -1,0 +1,228 @@
+/* ===============================
+   GOOGLE FONTS
+================================ */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Montserrat:wght@400;600;700&display=swap");
+
+/* ===============================
+   ROOT VARIABLES
+================================ */
+:root {
+  --bg: #030305;
+  --primary: #6366f1;
+  --secondary: #8b5cf6;
+  --cursor-size: 18px;
+  --cursor-hover-size: 80px;
+}
+
+/* ===============================
+   BASE RESET
+================================ */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: #e5e7eb;
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* ===============================
+   HEADINGS
+================================ */
+.font-heading {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* ===============================
+   CUSTOM CURSOR
+================================ */
+#cursor {
+  position: fixed;
+  width: var(--cursor-size);
+  height: var(--cursor-size);
+  border-radius: 50%;
+  background: white;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  mix-blend-mode: exclusion;
+  transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease,
+    background 0.3s ease;
+}
+
+#cursor.hovered {
+  width: var(--cursor-hover-size);
+  height: var(--cursor-hover-size);
+  opacity: 0.3;
+  background: var(--primary);
+}
+
+/* ===============================
+   NOISE OVERLAY
+================================ */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZmlsdGVyIGlkPSJuIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iMC44IiBudW1PY3RhdmVzPSI0IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI24pIiBvcGFjaXR5PSIwLjAyIi8+PC9zdmc+");
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ===============================
+   GLASS PANEL
+================================ */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* ===============================
+   LIQUID BLOBS
+================================ */
+.liquid-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  animation: blobFloat 20s ease-in-out infinite alternate;
+}
+
+@keyframes blobFloat {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(40px, 60px);
+  }
+}
+
+/* ===============================
+   PRELOADER
+================================ */
+#preloader {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+#preloader.loaded {
+  transform: translateY(-100%);
+  transition: transform 0.9s cubic-bezier(0.7, 0, 0.2, 1);
+}
+
+.loader-bar {
+  width: 200px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+}
+
+.loader-progress {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  transition: width 0.2s linear;
+}
+
+/* ===============================
+   REVEAL ANIMATION
+================================ */
+.reveal {
+  transform: translateY(40px);
+  opacity: 0;
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.reveal.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.delay-100 {
+  transition-delay: 0.1s;
+}
+.delay-200 {
+  transition-delay: 0.2s;
+}
+.delay-300 {
+  transition-delay: 0.3s;
+}
+.delay-500 {
+  transition-delay: 0.5s;
+}
+
+/* ===============================
+   PARALLAX
+================================ */
+.parallax-element {
+  will-change: transform;
+}
+
+/* ===============================
+   STACK CAROUSEL
+================================ */
+.stack-carousel {
+  perspective: 1400px;
+}
+
+.carousel-card {
+  transition: transform 0.8s cubic-bezier(0.7, 0, 0.2, 1),
+    opacity 0.8s ease;
+}
+
+/* ===============================
+   MARQUEE
+================================ */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+  will-change: transform;
+}
+
+/* ===============================
+   SCROLLBAR (OPTIONAL POLISH)
+================================ */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050507;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* ===============================
+   SELECTION
+================================ */
+::selection {
+  background: rgba(99, 102, 241, 0.3);
+  color: white;
+}
