@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 import './App.css'
 import Home from "./pages/home";
 import Games from "./pages/Games";
@@ -8,7 +8,7 @@ import Join from "./pages/Join";
 
 function App() {
   return (
-    <Router basename="/nightpulseesport/">
+    <Router>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/games" element={<Games />} />
