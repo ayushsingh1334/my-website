@@ -8,7 +8,7 @@ import Join from "./pages/Join";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/nightpulseesport/">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/games" element={<Games />} />
